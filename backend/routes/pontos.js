@@ -33,31 +33,31 @@ const PASSEMAIL = process.env.PASSEMAIL;
 const reqPath = path.join(__dirname, "../");
 console.log(reqPath);
 
-const storage = multer.diskStorage({
-  destination: function(req, file, cb) {
-    cb(null, reqPath + "/angular/assets/img/");
-  },
-  filename: function(req, file, cb) {
-    cb(null, file.fieldname + "-" + Date.now() + ".jpeg");
-  }
-});
+// const storage = multer.diskStorage({
+//   destination: function(req, file, cb) {
+//     cb(null, reqPath + "/angular/assets/img/");
+//   },
+//   filename: function(req, file, cb) {
+//     cb(null, file.fieldname + "-" + Date.now() + ".jpeg");
+//   }
+// });
 
-const upload = multer({ storage: storage }).single("avatar");
+// const upload = multer({ storage: storage }).single("avatar");
 
-router.post("/images", function(req, res) {
-  upload(req, res, function(err) {
-    if (err) {
-      // An error occurred when uploading
-      throw err;
-    }
-    res.json({
-      sucess: true,
-      message: "Image was uploaded successfully",
-      namefile: res.req.file.filename
-    });
-    // Everything went fine
-  });
-});
+//router.post("/images", function(req, res) {
+  // upload(req, res, function(err) {
+  //   if (err) {
+  //     // An error occurred when uploading
+  //     throw err;
+  //   }
+  //   res.json({
+  //     sucess: true,
+  //     message: "Image was uploaded successfully",
+  //     namefile: res.req.file.filename
+  //   });
+  //   // Everything went fine
+  // });
+//});
 
 router.get("/", function(req, res, next) {
   //var decoded = jwt.decode(req.query.token);
@@ -97,7 +97,8 @@ router.post("/", function(req, res, next) {
     config: config,
     address: req.body.address,
     obs: req.body.obs,
-    fileimg: req.body.fileimg
+    fileimg: req.body.fileimg,
+    link: req.body.link
   });
 
   console.log(pontos);
@@ -156,7 +157,7 @@ router.delete("/:id", function(req, res, next) {
 });
 
 router.put("/", function(req, res, next) {
-  console.log("servidor", req.body);
+  console.log("servidor", req.body[0].config[7]);
 
   for (let i = 0; i < req.body.length; i++) {
     Ponto.findById(req.body[i].id, function(err, ponto) {
@@ -195,6 +196,7 @@ router.put("/edit", function(req, res, next) {
     ponto.address = req.body.address;
     ponto.obs = req.body.obs;
     ponto.fileimg = req.body.fileimg;
+    ponto.link = req.body.link;
     ponto.save(function(err, result) {});
   });
 
