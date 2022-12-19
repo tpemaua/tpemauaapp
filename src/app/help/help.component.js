@@ -51,7 +51,7 @@ HelpComponent.decorators = [
              <h4>Caso seus dados pessoais estejam incorretos, envie um email para:</h4>
              <p><a href="mailto:{{email}}">{{email}}</a></p>
              <h4>Encontrou um erro no funcionamento do site ou gostaria de enviar uma sugestão, mande um email para:</h4>
-             <p><a href="mailto:suporte@tpesantoandre.com.br">suporte@tpesantoandre.com.br</a></p>
+             <p><a href="mailto:tpemaua@gmail.com">tpemaua@gmail.com</a></p>
     </div>
     </div>
   

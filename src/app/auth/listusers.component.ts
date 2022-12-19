@@ -21,7 +21,7 @@ import { Congregation } from "../setup/congregation.model";
             <th>Sobrenome</th>
             <th>Idade</th>
             <th>Email</th>
-            <th>Tel.Celular</th>
+            <th>Tel. Celular</th>
             <th>Congregação</th>
             <th>Circuito</th>
             <th>Priv.</th>
@@ -33,14 +33,14 @@ import { Congregation } from "../setup/congregation.model";
 
                <tr *ngFor="let user of users;let i = index">
                     <td class="ordem">{{ i + 1 }}</td>
-                    <td>   {{user.firstName}}    </td>
-                     <td>  {{user.lastName}}     </td>
-                     <td>  {{this.getAge(user.datebirth)}}   </td>
-                     <td>  {{user.email}}        </td>
-                     <td>  {{user.mobilephone}}  </td>
-                     <td>  {{user.congregation['nome']}} </td>
-                     <td>  {{user.congregation['circuit']}} </td>
-                     <td>  {{user.privilege}}    </td>
+                    <td>   {{user?.firstName}}    </td>
+                     <td>  {{user?.lastName}}     </td>
+                     <td>  {{this.getAge(user?.datebirth)}}   </td>
+                     <td>  {{user?.email}}        </td>
+                     <td>  {{user?.mobilephone}}  </td>
+                     <td>  {{user?.congregation['nome']}} </td>
+                     <td>  {{user?.congregation['circuit']}} </td>
+                     <td>  {{user?.privilege}}    </td>
                      <td> <button class="btn-aprov" [disabled]="users[i].released" (click)="Approve(i)" ><span class="glyphicon glyphicon-ok"></span>Ok</button>
                      <button class="btn-delete"  (click)="Delete(i)" ><span class="glyphicon glyphicon-erase"></span>Del</button>
                      </td>

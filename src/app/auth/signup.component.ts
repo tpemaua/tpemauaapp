@@ -163,12 +163,12 @@ if (this.criarForm()) {
           ( users: User[]) => {
               this.users = users;
               const usersort = users;
-              usersort.sort((a , b) => {
-                  if (a.firstName < b.firstName) { return -1; }
-                  if (a.firstName > b.firstName) { return 1; }
-                  return 0;
+            //   usersort.sort((a , b) => {
+            //       if (a.firstName < b.firstName) { return -1; }
+            //       if (a.firstName > b.firstName) { return 1; }
+            //       return 0;
 
-              });
+            //   });
 
               this.users = usersort;
               this.conjuges = usersort;
